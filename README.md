@@ -42,9 +42,6 @@ AI-Face-Swap/
 │   └── app.js                # Drag-drop upload, fetch /swap, show result
 ├── static/
 │   └── results/              # Swapped output images saved here
-├── Plan/
-│   ├── plan.txt              # Tech stack research and options
-│   └── setup_steps.txt       # Detailed setup reference
 ├── start.bat                 # One-click launcher (Windows)
 └── README.md                 # This file
 ```
@@ -136,11 +133,6 @@ print(' Done.')
 **Option B — Browser:**
 1. Visit: `https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx`
 2. Save the file to: `backend\models\inswapper_128.onnx`
-
-**Option C — curl.exe (Windows 11):**
-```cmd
-curl.exe -L -o "backend\models\inswapper_128.onnx" "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx"
-```
 
 ---
 
