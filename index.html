@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Face Swap</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>AI Face Swap</h1>
+    <p class="subtitle">Upload a person image and a face donor, then click <strong>Go</strong>.</p>
+
+    <div class="panels">
+      <!-- Left: Source person image -->
+      <div class="panel">
+        <div class="panel-label">Person Image <span class="hint">(body to keep)</span></div>
+        <div class="drop-zone" id="dropSource" role="button" tabindex="0" aria-label="Upload person image">
+          <input type="file" id="sourceInput" accept="image/jpeg,image/png,image/webp" hidden />
+          <div class="drop-content" id="sourceContent">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <p>Click or drag &amp; drop</p>
+            <p class="file-types">JPEG, PNG, WEBP</p>
+          </div>
+          <img id="sourcePreview" class="preview hidden" alt="Source preview" />
+        </div>
+        <button class="clear-btn hidden" id="clearSource">Remove</button>
+      </div>
+
+      <!-- Arrow -->
+      <div class="arrow-area">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </div>
+
+      <!-- Right: Target face image -->
+      <div class="panel">
+        <div class="panel-label">Face Donor <span class="hint">(face to use)</span></div>
+        <div class="drop-zone" id="dropTarget" role="button" tabindex="0" aria-label="Upload face donor image">
+          <input type="file" id="targetInput" accept="image/jpeg,image/png,image/webp" hidden />
+          <div class="drop-content" id="targetContent">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <p>Click or drag &amp; drop</p>
+            <p class="file-types">JPEG, PNG, WEBP</p>
+          </div>
+          <img id="targetPreview" class="preview hidden" alt="Target preview" />
+        </div>
+        <button class="clear-btn hidden" id="clearTarget">Remove</button>
+      </div>
+    </div>
+
+    <!-- Go button -->
+    <div class="action-row">
+      <button class="go-btn" id="goBtn" disabled>Go</button>
+    </div>
+
+    <!-- Status message -->
+    <div class="status hidden" id="status"></div>
+
+    <!-- Result area -->
+    <div class="result-area hidden" id="resultArea">
+      <div class="result-label">Result</div>
+      <img id="resultImage" class="result-image" alt="Swapped face result" />
+      <a class="download-btn" id="downloadBtn" download="face_swap_result.png">Download</a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
